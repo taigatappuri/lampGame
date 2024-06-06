@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+#game-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px; /* Added margin to push the game board down */
+}
+
+#row-switches {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+#game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#col-switches {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.switch {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    margin: 5px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#lamp-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    gap: 5px;
+}
+
+.lamp {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.lamp.on {
+    background-color: yellow;
+}
+
+#score-board {
+    font-size: 20px;
+    margin-top: 20px;
+}
