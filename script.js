@@ -9,9 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create row switches
     for (let i = 0; i < n; i++) {
         const switchElem = document.createElement('div');
-        switchElem.classList.add('switch');
+        switchElem.classList.add('switch', 'on');
         switchElem.textContent = 'ON';
-        switchElem.addEventListener('click', () => toggleRow(i));
+        switchElem.addEventListener('click', () => {
+            toggleRow(i);
+            toggleSwitch(switchElem);
+        });
         rowSwitches.appendChild(switchElem);
     }
 
@@ -34,9 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create column switches
     for (let i = 0; i < n; i++) {
         const switchElem = document.createElement('div');
-        switchElem.classList.add('switch');
+        switchElem.classList.add('switch', 'on');
         switchElem.textContent = 'ON';
-        switchElem.addEventListener('click', () => toggleColumn(i));
+        switchElem.addEventListener('click', () => {
+            toggleColumn(i);
+            toggleSwitch(switchElem);
+        });
         colSwitches.appendChild(switchElem);
     }
 
@@ -54,6 +60,19 @@ document.addEventListener('DOMContentLoaded', () => {
             lamps[i][colIndex].classList.toggle('on');
         }
         updateScore();
+    }
+
+    // Toggle switch appearance
+    function toggleSwitch(switchElem) {
+        if (switchElem.classList.contains('on')) {
+            switchElem.classList.remove('on');
+            switchElem.classList.add('off');
+            switchElem.textContent = 'OFF';
+        } else {
+            switchElem.classList.remove('off');
+            switchElem.classList.add('on');
+            switchElem.textContent = 'ON';
+        }
     }
 
     // Update score
